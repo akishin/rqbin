@@ -1,0 +1,17 @@
+defaults: &defaults
+  key_length: 10
+
+development:
+  <<: *defaults
+  host: 'http://localhost:3000'
+  site_key: '0845a5972cd9ad4a46bad66f1253581f'
+
+test:
+  <<: *defaults
+  host: 'http://test.example.com'
+  site_key: '1e5e988d4ac0feb82b5a33be378cf2ec'
+
+production:
+  <<: *defaults
+  host: 'https://rqbin.example.com'
+  site_key: 'db6702b4cbd3e16b04b4f7cb4fa81c18'

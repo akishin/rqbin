@@ -1,0 +1,39 @@
+- model_class = Page
+.page-header
+  .controls.form-inline
+    = label_tag :post_uri, t('label.link.post_uri'), class: 'control-label'
+    = text_field_tag('post_uri', @page.post_url, class: 'xxlarge input-xxlarge', onclick: 'this.select();')
+-if @page.posts.empty?
+  =t '.not_found'
+-else
+  h3=t '.title', request_id: @page.request_id, :default => model_class.model_name.human.titleize
+  - @page.posts.each do |post|
+    .row-fluid style="background-color: #F5F5F5; margin-bottom: 40px;"
+        h4 #{post.http_method} /#{@page.request_id} 
+        |#{l(post.created_at, format: :long)}
+        h5 Request Headers
+        table.table.table-striped.table-bordered.table-condensed
+          thead
+            tr
+              th Name
+              th Value
+          tbody
+            - header_hash(post).each do |k, v|
+              tr
+                td #{k}
+                td #{v}
+        h5 Request Parameters
+        table.table.table-striped.table-bordered.table-condensed
+          thead
+            trl
+              th Name
+              th Value
+          tbody
+            - param_hash(post).each do |k, v|
+              tr
+                td #{k}
+                td #{v}
+        h5 RAW Post
+        pre
+          = raw post.raw_post
+  hr

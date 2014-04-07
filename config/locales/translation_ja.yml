@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      page: マイページ  #g
+      post: リクエスト  #g
+
+    attributes:
+      page:
+        request_id: リクエストID #g
+        posts: posts  #g
+
+      post:
+        headers: HTTPヘッダ  #g
+        params: HTTPリクエストパラメータ  #g
+        http_method: HTTPメソッド  #g
+        page: :activerecord.models.page  #g

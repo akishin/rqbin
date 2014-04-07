@@ -1,0 +1,7 @@
+- model_class = Page
+div class="page-header"
+  h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+
+  = simple_form_for @page, :html => { :class => "form-horizontal" } do |f|
+    .form-actions
+      = f.button :submit, t('form.button.create_page'), :class => 'btn-primary'
