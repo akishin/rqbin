@@ -13,5 +13,5 @@ test:
 
 production:
   <<: *defaults
-  host: 'https://rqbin.example.com'
+  host: 'http://rqbin.herokuapp.com'
   site_key: 'db6702b4cbd3e16b04b4f7cb4fa81c18'
