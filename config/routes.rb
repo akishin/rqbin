@@ -1,9 +1,8 @@
-Rqbin::Application.routes.draw do
+Rails.application.routes.draw do
   root  :to => "pages#index", :via => :get
   post  'pages/' => 'pages#create'
   get   '/:request_id/inspect' => 'pages#show'
   match '/:request_id'         => 'posts#create', :via => [:get, :post, :put, :delete, :patch]
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
