@@ -17,12 +17,20 @@ class Page < ActiveRecord::Base
     "#{Settings.host}/#{self.request_id}"
   end
 
+  def self.create_page!(retry_count = 5)
+    page = new
+    page.save!
+    page
+  rescue ActiveRecord::RecordNotUnique => e
+    logger.debug("#{e.class}:#{e.message}")
+    retry_count -= 1
+    retry if retry_count >= 0
+    raise
+  end
+
   private
 
   def generate_request_id
     self.request_id = Digest::HMAC.hexdigest(Time.now.to_s, Settings.site_key, Digest::SHA2)[0...Settings.key_length]
-  rescue ActiveRecord::RecordNotUnique => e
-    logger.error(e)
-    retry
   end
 end
