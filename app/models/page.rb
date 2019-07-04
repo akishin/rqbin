@@ -31,6 +31,6 @@ class Page < ActiveRecord::Base
   private
 
   def generate_request_id
-    self.request_id = Digest::HMAC.hexdigest(Time.now.to_s, Settings.site_key, Digest::SHA2)[0...Settings.key_length]
+    self.request_id = OpenSSL::HMAC.hexdigest("SHA256", Settings.site_key, Time.now.to_s)[0...Settings.key_length]
   end
 end

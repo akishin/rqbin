@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140401070257) do
 
-  create_table "pages", force: true do |t|
+  create_table "pages", force: :cascade do |t|
     t.string   "request_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140401070257) do
 
   add_index "pages", ["request_id"], name: "index_pages_on_request_id", unique: true
 
-  create_table "posts", force: true do |t|
+  create_table "posts", force: :cascade do |t|
     t.integer  "page_id"
     t.string   "http_method"
     t.text     "params"
