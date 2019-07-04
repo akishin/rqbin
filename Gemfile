@@ -75,7 +75,7 @@ end
 
 group :production do
   # for Heroku
-  gem 'pg'
+  gem 'pg', '~> 0.19.0'
   gem 'rails_12factor'
 end
 
