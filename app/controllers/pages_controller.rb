@@ -15,13 +15,16 @@ class PagesController < ApplicationController
   # POST /pages
   # POST /pages.json
   def create
+    @page = Page.new
     respond_to do |format|
       begin
         @page = Page.create_page!
         format.html { redirect_to "/#{@page.request_id}/inspect", notice: t('pages.create.success') }
         format.json { render action: 'show', status: :created, location: @page }
       rescue => e
-        format.html { render action: 'index' }
+        Rails.logger.error("Failed to create page: #{e.class} - #{e.message}")
+        Rails.logger.error(e.backtrace.join("\n"))
+        format.html { render action: 'index', status: :unprocessable_entity }
         format.json { render json: {:message => "create page error"}, status: :unprocessable_entity }
       end
     end

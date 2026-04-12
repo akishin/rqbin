@@ -1,16 +1,16 @@
 class PostsController < ApplicationController
-  skip_before_filter :verify_authenticity_token ,:only => [:create]
+  skip_before_action :verify_authenticity_token, only: [:create]
 
   # POST /posts
   # POST /posts.json
   def create
-    page = Page.where(:request_id => params[:request_id]).first
+    page = Page.where(request_id: params[:request_id]).first
     page.posts << create_post
 
     if page.save
-      render :text => "OK\r\n", :status => 200
+      render plain: "OK\r\n", status: 200
     else
-      render :text => "NG\r\n", :status => 500
+      render plain: "NG\r\n", status: 500
     end
   end
 
