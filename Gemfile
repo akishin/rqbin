@@ -31,7 +31,6 @@ group :doc do
 end
 
 gem 'slim-rails'
-gem 'simple_form'
 
 gem 'settingslogic'
 
