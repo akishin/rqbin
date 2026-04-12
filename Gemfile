@@ -1,23 +1,29 @@
 source 'https://rubygems.org'
-ruby '2.4.4'
+ruby '3.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.11.1'
+gem 'rails', '~> 7.0.0'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+# gem 'coffee-rails', '~> 4.1.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+# Use Puma as the app server
+gem 'puma', '~> 3.12'
+
+# Use webrick for development (required for Ruby 3.x)
+gem 'webrick', '~> 1.8'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
@@ -30,9 +36,7 @@ group :doc do
   gem 'sdoc', '~> 0.4.0',  require: false
 end
 
-gem 'less-rails'
 gem 'slim-rails'
-gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem 'simple_form'
 
 gem 'settingslogic'
@@ -50,7 +54,6 @@ group :development do
   gem 'binding_of_caller'
   gem "meta_request"
   gem 'annotate', ">=2.5.0"
-  gem 'quiet_assets'
   gem 'i18n_generators'
 end
 
@@ -65,7 +68,7 @@ group :development, :test do
   gem 'guard-bundler'
   gem 'rb-inotify'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.3.6'
+  gem 'sqlite3', '~> 1.4.0'
 end
 
 group :test do
@@ -75,7 +78,6 @@ end
 
 group :production do
   # for Heroku
-  gem 'pg', '~> 0.19.0'
-  gem 'rails_12factor'
+  gem 'pg', '~> 1.5.0'
 end
 
