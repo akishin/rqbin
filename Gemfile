@@ -2,20 +2,11 @@ source 'https://rubygems.org'
 ruby '3.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0.0'
+gem 'rails', '~> 8.0.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 6.0'
 gem 'cssbundling-rails'
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
-# gem 'coffee-rails', '~> 4.1.0'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
 
 # Use Hotwire for the JavaScript library
 gem 'importmap-rails'
@@ -23,7 +14,7 @@ gem 'turbo-rails'
 gem 'stimulus-rails'
 
 # Use Puma as the app server
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 6.0'
 
 # Use webrick for development (required for Ruby 3.x)
 gem 'webrick', '~> 1.8'
@@ -36,7 +27,7 @@ gem 'jbuilder', '~> 2.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', '~> 0.4.0',  require: false
+  # gem 'sdoc', '~> 0.4.0',  require: false
 end
 
 gem 'slim-rails'
@@ -71,7 +62,7 @@ group :development, :test do
   gem 'guard-bundler'
   gem 'rb-inotify'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4.0'
+  gem 'sqlite3', '~> 2.0'
 end
 
 group :test do
