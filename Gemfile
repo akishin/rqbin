@@ -17,8 +17,10 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
+# Use Hotwire for the JavaScript library
+gem 'importmap-rails'
+gem 'turbo-rails'
+gem 'stimulus-rails'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.12'
