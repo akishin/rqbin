@@ -22,6 +22,8 @@ class PagesController < ApplicationController
         format.html { redirect_to "/#{@page.request_id}/inspect", notice: t('pages.create.success') }
         format.json { render action: 'show', status: :created, location: @page }
       rescue => e
+        Rails.logger.error("Failed to create page: #{e.class} - #{e.message}")
+        Rails.logger.error(e.backtrace.join("\n"))
         format.html { render action: 'index', status: :unprocessable_entity }
         format.json { render json: {:message => "create page error"}, status: :unprocessable_entity }
       end
